@@ -1,0 +1,507 @@
+FIRST MISSING POITIVE 
+
+class Solution {
+public:
+    int firstMissingPositive(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        auto it=find(nums.begin(),nums.end(),1);
+        if(it==nums.end())
+            return 1;
+        for(int i=0;i<nums.size()-1;i++)
+        {    if(nums[i]>0)
+        {if(nums[i+1]-nums[i]!=0&&nums[i+1]-nums[i]!=1)
+            {
+                return nums[i]+1;
+            }}
+        }
+        return nums[nums.size()-1]+1;
+    }
+};
+
+
+
+
+
+//Next greater
+
+
+class Solution {
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        vector<int>v;
+        while(head!=NULL)
+        {
+            v.push_back(head->val);
+            head=head->next;
+        }
+        vector<int>ans(v.size(),0);
+        stack<int>st;
+       for(int i = 0; i < v.size(); i++){
+            
+            while(!st.empty() &&v[i] > v[st.top()]){
+                ans[st.top()] = v[i];
+                st.pop();
+            }
+            st.push(i);
+        }
+        return ans;
+    }
+};
+
+
+
+
+
+ Remove Nth Node From End of List
+\\\
+class Solution {
+public:
+    ListNode* removeNthFromEnd(ListNode* head, int n) {
+        int  count=0;
+        if(head==NULL)
+            return head;
+        if(head->next==NULL)
+        {
+            head=NULL;
+            return head;
+        }
+        ListNode *temp=head;
+        while(temp)
+        {
+            count++;
+            temp=temp->next;
+        }
+        temp=head;
+        if(count==n)
+        {
+            head=head->next;
+            return head;
+        }
+        for(int i=1;i<count-n;i++)
+            temp=temp->next;
+        if(temp->next->next!=NULL)
+        temp->next=temp->next->next;
+        else
+            temp->next=NULL;    
+        return head;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+/////Next Greater Node
+class Solution {
+public:
+    vector<int> nextLargerNodes(ListNode* head) {
+        vector<int>v;
+        while(head!=NULL)
+        {
+            v.push_back(head->val);
+            head=head->next;
+        }
+        vector<int>ans(v.size(),0);
+        stack<int>st;
+       for(int i = 0; i < v.size(); i++){
+            
+            while(!st.empty() &&v[i] > v[st.top()]){
+                ans[st.top()] = v[i];
+                st.pop();
+            }
+            st.push(i);
+        }
+        return ans;
+    }
+};
+
+
+
+
+
+
+
+
+//Merge two sorted LL 
+
+
+
+
+class Solution {
+public:
+    ListNode* mergeTwoLists(ListNode* list1, ListNode* list2) {
+       ListNode *head=NULL;
+        if(list1==NULL)
+            return list2;
+        if(list2==NULL)
+            return list1;
+        if(list1->val<=list2->val)
+        {head=list1;
+         list1=list1->next;}
+        else
+        {head=list2;
+         list2=list2->next;}
+         ListNode *temp=head;
+        while(list1&&list2)
+        {
+            if(list1->val<=list2->val)
+            {
+                temp->next=list1;
+                temp=temp->next;
+                list1=list1->next;
+            }
+            else if(list2->val<=list1->val)
+            {
+                 temp->next=list2;
+                temp=temp->next;
+                list2=list2->next;
+            }
+            
+            
+        }
+        if(list1==NULL&&list2!=NULL)
+            temp->next=list2;
+        else
+            temp->next=list1;
+        return head;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+//SUM OF SQUARES
+
+#include<math.h>
+class Solution {
+public:
+    bool judgeSquareSum(int c) {
+        for (long a = 0; a * a <= c; a++) {
+            double b =sqrt(c-a*a);
+            if (b == (int) b)
+                return true;
+        }
+        return false;
+    }
+};
+
+
+
+
+
+
+
+
+
+//Single eement 
+  int singleNonDuplicate(vector<int>& nums) {
+        sort(nums.begin(),nums.end());
+        if(nums.size()==1)
+            return nums[0];
+        for(int i=0;i<nums.size()-1;i++)
+        {        if(nums[i]==nums[i+1])
+              i++;
+           else if(nums[i]!=nums[i+1])
+                return nums[i];
+        }
+        return nums[nums.size()-1];
+    }
+};
+
+
+
+
+
+
+
+
+
+
+//HAPPY NUMBER
+class Solution {
+public:
+    int sum(int n)
+    {
+        int s=0;
+        while(n!=0)
+        {
+            int rem=n%10;
+            s+=pow(rem,2);
+            n/=10;
+        }
+        return s;
+    }
+    bool isHappy(int n) {
+       int ans=n;
+        while(ans!=1&&ans!=4)
+        {   ans=sum(ans);
+        }
+     if(ans==1)
+         return true;
+        else
+            return false;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+FIRST BAD VERSION
+
+
+
+// The API isBadVersion is defined for you.
+// bool isBadVersion(int version);
+
+class Solution {
+public:
+    int firstBadVersion(int n) {
+         long long int beg,last,mid;
+        beg = 1 , last = n;
+        long int pos = 1;
+        while(beg<=last){
+            mid = beg + (last-beg)/2;
+            bool x = isBadVersion(mid);
+            if(x == true){
+                pos = mid;
+                last = mid-1;
+            }
+            else
+                beg = mid+1;
+        }
+
+        
+        return pos;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Minimum operations to make equal
+
+class Solution {
+public:
+    int minMoves2(vector<int>& nums) {
+        int count=0;
+        sort(nums.begin(),nums.end());
+        int min=nums[nums.size()/2];
+        for(int i=0;i<nums.size();i++)
+        {
+            count+=abs(nums[i]-min);
+        }
+        return count;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Sort Linked List
+
+class Solution {
+public:
+    ListNode* sortList(ListNode* head) {
+       if(head==NULL)
+           return head;
+        ListNode* temp=head;
+        vector<int>v;
+        ListNode* curr=head;
+        while(temp!=NULL)
+        {v.push_back(temp->val);
+         temp=temp->next;}
+        sort(v.begin(),v.end());
+        ListNode* newhead=new ListNode;
+           ListNode* temp1=newhead;
+        temp1->val=v[0];
+        
+        for(int i = 1; i < v.size(); i++)
+        {
+            curr = new ListNode;
+            curr->val = v[i];
+            temp1->next = curr;
+            
+            temp1 = curr;
+        }
+        return newhead;
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You are given the head of a singly linked-list. The list can be represented as:
+
+L0 → L1 → … → Ln - 1 → Ln
+Reorder the list to be on the following form:
+
+L0 → Ln → L1 → Ln - 1 → L2 → Ln - 2 → …
+You may not modify the values in the list's nodes. Only nodes themselves may be changed.
+class Solution {
+public:
+    void reorderList(ListNode* head) {
+        ListNode* temp=head;
+        if(head==NULL)
+            return;
+        vector<int>v;
+        while(temp)
+        {
+            v.push_back(temp->val);
+            temp=temp->next;
+        }
+        vector<int>v1;
+        for(int i=0;i<v.size();i++)
+        {
+            v1.push_back(v[i]);
+            v1.push_back(v[v.size()-1-i]);
+        }
+        vector<int>v2;
+        for(int i=0;i<v.size();i++)
+            v2.push_back(v1[i]);
+        ListNode* ans=head;
+         for(auto it:v2)
+             cout<<it;
+        for(auto it:v2)
+        {
+            ans->val=it;
+            ans=ans->next;
+        }
+    }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Remove duplicates
+
+
+
+
+ ListNode* deleteDuplicates(ListNode* head) {
+          if (head==NULL || head->next==NULL){
+            return head;
+        }
+        bool j = false;
+        while (head->next!=NULL && head->val == head->next->val){
+            j = true;
+            head->next = head->next->next;
+        }
+        if (j){
+            head = deleteDuplicates(head->next);
+            return head;
+        }
+        head->next = deleteDuplicates(head->next);
+        return head;
+    }
+};

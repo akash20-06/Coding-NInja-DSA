@@ -1,0 +1,334 @@
+#include<iostream>
+using namespace std;
+
+class IntNumbers{
+	public:
+		int num1 , num2;
+		void getdata(){
+			cout<<"Enter First Number:";
+			cin>>num1;
+			cout<<"Enter Second Number:";
+			cin>>num2;
+			}
+};
+
+class Addition : virtual public IntNumbers{
+	public :
+		int sum;
+		void add(){
+			sum = num1+num2;
+		}
+};
+
+
+
+
+
+
+
+
+
+class Subtraction : public virtual IntNumbers{
+	public :
+		int difference;
+		void sub(){
+			difference = num1-num2;
+		}
+};
+
+
+class FloatNumbers{
+	public:
+		float num3 , num4;
+		void getfloat(){
+			cout<<"Enter Third Number:";
+			cin>>num3;
+			cout<<"Enter Fourth Number:";
+			cin>>num4;
+			}
+};
+
+class Multiplication : public virtual FloatNumbers{
+	public :
+		float product;
+		void mul(){
+			product = num3*num4;
+		}
+};
+
+class Division : public virtual FloatNumbers{
+	public :
+		float quotient;
+		void div(){
+			quotient = num3/num4;
+		}
+};
+
+class Arithematic : public Addition , public Subtraction , public Multiplication , public Division{
+	public:
+		void display(){
+			cout<<num1<<endl<<num2<<endl<<num3<<endl<<num4<<endl;
+			cout<<"Sum : "<<sum<<endl;
+			cout<<"Difference : "<<difference<<endl;
+			cout<<"Product : "<<product<<endl;
+			cout<<"Quotient : "<<quotient<<endl;
+		}
+};
+
+
+int main(){
+	Arithematic A;
+	
+	A.getdata();
+	A.getfloat();
+	A.add();
+	A.sub();
+	A.mul();
+	A.div();
+	
+	A.display();
+}#include<iostream>
+using namespace std;
+
+class IntNumbers{
+	public:
+		int num1 , num2;
+		void getdata(){
+			cout<<"Enter First Number:";
+			cin>>num1;
+			cout<<"Enter Second Number:";
+			cin>>num2;
+			}
+};
+
+class Addition : virtual public IntNumbers{
+	public :
+		int sum;
+		void add(){
+			sum = num1+num2;
+		}
+};
+
+class Subtraction : public virtual IntNumbers{
+	public :
+		int difference;
+		void sub(){
+			difference = num1-num2;
+		}
+};
+
+
+class FloatNumbers{
+	public:
+		float num3 , num4;
+		void getfloat(){
+			cout<<"Enter Third Number:";
+			cin>>num3;
+			cout<<"Enter Fourth Number:";
+			cin>>num4;
+			}
+};
+
+class Multiplication : public virtual FloatNumbers{
+	public :
+		float product;
+		void mul(){
+			product = num3*num4;
+		}
+};
+
+class Division : public virtual FloatNumbers{
+	public :
+		float quotient;
+		void div(){
+			quotient = num3/num4;
+		}
+};
+
+class Arithematic : public Addition , public Subtraction , public Multiplication , public Division{
+	public:
+		void display(){
+			cout<<num1<<endl<<num2<<endl<<num3<<endl<<num4<<endl;
+			cout<<"Sum : "<<sum<<endl;
+			cout<<"Difference : "<<difference<<endl;
+			cout<<"Product : "<<product<<endl;
+			cout<<"Quotient : "<<quotient<<endl;
+		}
+};
+
+
+int main(){
+	Arithematic A;
+	
+	A.getdata();
+	A.getfloat();
+	A.add();
+	A.sub();
+	A.mul();
+	A.div();
+	
+	A.display();
+}
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+
+class IntNumbers{
+	public:
+		int num1 , num2;
+		void getdata(){
+			cout<<"Enter First Number:";
+			cin>>num1;
+			cout<<"Enter Second Number:";
+			cin>>num2;
+			}
+};
+
+class Addition : virtual public IntNumbers{
+	public :
+		int sum;
+		void add(){
+			sum = num1+num2;
+		}
+};
+
+class Subtraction : public virtual IntNumbers{
+	public :
+		int difference;
+		void sub(){
+			difference = num1-num2;
+		}
+};
+
+
+class FloatNumbers{
+	public:
+		float num3 , num4;
+		void getfloat(){
+			cout<<"Enter Third Number:";
+			cin>>num3;
+			cout<<"Enter Fourth Number:";
+			cin>>num4;
+			}
+};
+
+class Multiplication : public virtual FloatNumbers{
+	public :
+		float product;
+		void mul(){
+			product = num3*num4;
+		}
+};
+
+class Division : public virtual FloatNumbers{
+	public :
+		float quotient;
+		void div(){
+			quotient = num3/num4;
+		}
+};
+
+class Arithematic : public Addition , public Subtraction , public Multiplication , public Division{
+	public:
+		void display(){
+			cout<<num1<<endl<<num2<<endl<<num3<<endl<<num4<<endl;
+			cout<<"Sum : "<<sum<<endl;
+			cout<<"Difference : "<<difference<<endl;
+			cout<<"Product : "<<product<<endl;
+			cout<<"Quotient : "<<quotient<<endl;
+		}
+};
+
+
+int main(){
+	Arithematic A;
+	
+	A.getdata();
+	A.getfloat();
+	A.add();
+	A.sub();
+	A.mul();
+	A.div();
+	
+	A.display();
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#include<iostream>
+using namespace std;
+class Stud{
+
+protected:	int roll;
+	string name;
+	int age;
+public:
+	void input(){
+		cout<<"Enter the roll no., name and age\n";
+		cin>>roll>>name>>age;	
+	}
+	void display(){
+		cout<<"\n ROLL NO :"<<roll;
+		cout<<"\n NAME :"<<name;
+		cout<<"\n AGE :"<<age;
+	}	
+};
+
+class ug_Stud: public Stud{
+
+protected:	int sem;
+	string branch;
+	int fee;
+public:
+	void input1(){
+		input();
+		cout<<"Enter the semester, branch and fees\n";
+		cin>>sem>>branch>>fee;	
+	}
+	void display1(){
+		display();
+		cout<<"\n SEMESTER :"<<sem;
+		cout<<"\n BRANCH :"<<branch;
+		cout<<"\n FEE :"<<fee<<endl;
+	}	
+};
+
+
+int main()
+{
+	int size;
+	cout<<"enter the no. student\n";
+	
+	cin>>size;
+	ug_Stud s[size];
+	for(int i=0;i<size;i++){
+		s[i].input1();
+	}
+	for(int i=0;i<size;i++){
+		s[i].display1();
+	}
+	return 0;
+}
